@@ -224,7 +224,7 @@ class HomeDashboard extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 16),
+                            const SizedBox(height: 10),
                             Text(
                               'সোমবার, ০২ সেপ্টেম্বর ২০২৫',
                               style: TextStyle(
@@ -232,7 +232,7 @@ class HomeDashboard extends StatelessWidget {
                                 fontSize: 12,
                               ),
                             ),
-                            const SizedBox(height: 4),
+                            const SizedBox(height: 0),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -265,7 +265,7 @@ class HomeDashboard extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 8),
+                            const SizedBox(height: 3),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -332,7 +332,7 @@ class HomeDashboard extends StatelessWidget {
             ),
 
             // ওয়েদার কার্ডের নিচের স্পেসিং অ্যাডজাস্টমেন্ট
-            SizedBox(height: screenSize.height * 0.16),
+            SizedBox(height: screenSize.height * 0.18),
 
             // ৩. ক্রপ ফিল্টার ক্যাটাগরি চিপস (গম, আঙুর, আলু, ধান)
             Padding(
@@ -373,7 +373,7 @@ class HomeDashboard extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 24),
+            const SizedBox(height: 14),
 
             // ৪. "আমার জমি" টাইটেল রো
             const Padding(
@@ -564,7 +564,7 @@ class HomeDashboard extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 0),
             // ৬. "দ্রুত টুলস" — কোডে থাকা বাকি স্ক্রিনগুলোতে যাওয়ার শর্টকাট গ্রিড
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -607,7 +607,7 @@ class HomeDashboard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 14),
+                    const SizedBox(height: 0),
                     GridView.count(
                       crossAxisCount: 2,
                       shrinkWrap: true,
