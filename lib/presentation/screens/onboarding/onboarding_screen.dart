@@ -92,10 +92,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     children: [
                       for (int i = 0; i < _items.length; i++)
                         Expanded(
-                          child: _OnboardBlock(
-                            item: _items[i],
-                            compact: true,
-                          ),
+                          child: _OnboardBlock(item: _items[i], compact: true),
                         ),
                     ],
                   );
@@ -137,7 +134,9 @@ class _OnboardBlock extends StatelessWidget {
         : Theme.of(context).textTheme.titleLarge;
     final bodyStyle = compact
         ? Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.black54)
-        : Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black54);
+        : Theme.of(
+            context,
+          ).textTheme.bodyMedium?.copyWith(color: Colors.black54);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Column(

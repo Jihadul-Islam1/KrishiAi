@@ -573,10 +573,7 @@ class HomeDashboard extends StatelessWidget {
                   gradient: const LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [
-                      Color(0xFFE8F5E9),
-                      Color(0xFFC8E6C9),
-                    ],
+                    colors: [Color(0xFFE8F5E9), Color(0xFFC8E6C9)],
                   ),
                   borderRadius: BorderRadius.circular(24),
                   boxShadow: [
@@ -816,10 +813,7 @@ class HomeDashboard extends StatelessWidget {
             gradient: const LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [
-                Colors.white,
-                Color(0xFFF1F8F2),
-              ],
+              colors: [Colors.white, Color(0xFFF1F8F2)],
             ),
             borderRadius: BorderRadius.circular(18),
             border: Border.all(
@@ -844,10 +838,7 @@ class HomeDashboard extends StatelessWidget {
                   gradient: const LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [
-                      Color(0xFF2E7D32),
-                      Color(0xFF66BB6A),
-                    ],
+                    colors: [Color(0xFF2E7D32), Color(0xFF66BB6A)],
                   ),
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
@@ -900,7 +891,8 @@ class HomeDashboard extends StatelessWidget {
         ),
       ),
     );
-  }}
+  }
+}
 
 // Alias used by lib/main.dart - the original agro.png dashboard.
 typedef HomeScreen = HomeDashboard;
