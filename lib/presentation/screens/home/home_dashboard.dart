@@ -567,102 +567,134 @@ class HomeDashboard extends StatelessWidget {
             const SizedBox(height: 30),
             // ৬. "দ্রুত টুলস" — কোডে থাকা বাকি স্ক্রিনগুলোতে যাওয়ার শর্টকাট গ্রিড
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'দ্রুত টুলস',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  GridView.count(
-                    crossAxisCount: 2,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    mainAxisSpacing: 12,
-                    crossAxisSpacing: 12,
-                    childAspectRatio: 1.25,
-                    children: [
-                      _buildToolCard(
-                        title: 'AI ক্রপ ডাক্তার',
-                        icon: Icons.camera_alt,
-                        color: const Color(0xFF2E7D32),
-                        onTap: () => context.push('/ai/scan'),
-                      ),
-                      _buildToolCard(
-                        title: 'AI সহকারী',
-                        icon: Icons.smart_toy,
-                        color: const Color(0xFF1976D2),
-                        onTap: () => context.go('/ai'),
-                      ),
-                      _buildToolCard(
-                        title: 'আবহাওয়া',
-                        icon: Icons.wb_sunny,
-                        color: const Color(0xFFFF9800),
-                        onTap: () => context.push('/weather'),
-                      ),
-                      _buildToolCard(
-                        title: 'বা�ার দর',
-                        icon: Icons.storefront,
-                        color: const Color(0xFF7B1FA2),
-                        onTap: () => context.go('/market'),
-                      ),
-                      _buildToolCard(
-                        title: 'রোগ লাইব্রেরি',
-                        icon: Icons.local_library,
-                        color: const Color(0xFFD32F2F),
-                        onTap: () => context.push('/library'),
-                      ),
-                      _buildToolCard(
-                        title: 'খরচ ট্র্যাকার',
-                        icon: Icons.account_balance_wallet,
-                        color: const Color(0xFF00897B),
-                        onTap: () => context.push('/expenses'),
-                      ),
-                      _buildToolCard(
-                        title: 'লাভ গণনা',
-                        icon: Icons.calculate,
-                        color: const Color(0xFF558B2F),
-                        onTap: () => context.push('/profit'),
-                      ),
-                      _buildToolCard(
-                        title: 'বিশ্লেষণ',
-                        icon: Icons.bar_chart,
-                        color: const Color(0xFF455A64),
-                        onTap: () => context.push('/analytics'),
-                      ),
-                      _buildToolCard(
-                        title: 'সেচ পরামর্শ',
-                        icon: Icons.water_drop,
-                        color: const Color(0xFF0288D1),
-                        onTap: () => context.push('/irrigation'),
-                      ),
-                      _buildToolCard(
-                        title: 'সার পরামর্শ',
-                        icon: Icons.grass,
-                        color: const Color(0xFF6D4C41),
-                        onTap: () => context.push('/fertilizer'),
-                      ),
-                      _buildToolCard(
-                        title: 'স্ক্যান ইতিহাস',
-                        icon: Icons.history,
-                        color: const Color(0xFF5E35B1),
-                        onTap: () => context.push('/ai/history'),
-                      ),
-                      _buildToolCard(
-                        title: 'নোটিফিকেশন',
-                        icon: Icons.notifications,
-                        color: const Color(0xFFE65100),
-                        onTap: () => context.push('/notifications'),
-                      ),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      Color(0xFFE8F5E9),
+                      Color(0xFFC8E6C9),
                     ],
                   ),
-                ],
+                  borderRadius: BorderRadius.circular(24),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFF2E7D32).withValues(alpha: 0.10),
+                      blurRadius: 18,
+                      offset: const Offset(0, 6),
+                    ),
+                  ],
+                ),
+                padding: const EdgeInsets.fromLTRB(16, 18, 16, 18),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 6,
+                      ),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF2E7D32),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: const Text(
+                        'দ্রুত টুলস',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                          letterSpacing: 0.3,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 14),
+                    GridView.count(
+                      crossAxisCount: 2,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      mainAxisSpacing: 12,
+                      crossAxisSpacing: 12,
+                      childAspectRatio: 1.15,
+                      children: [
+                        _buildToolCard(
+                          title: 'AI ক্রপ ডাক্তার',
+                          subtitle: 'রোগ শনাক্ত',
+                          icon: Icons.camera_alt,
+                          onTap: () => context.push('/ai/scan'),
+                        ),
+                        _buildToolCard(
+                          title: 'AI সহকারী',
+                          subtitle: 'প্রশ্ন করুন',
+                          icon: Icons.smart_toy,
+                          onTap: () => context.go('/ai'),
+                        ),
+                        _buildToolCard(
+                          title: 'আবহাওয়া',
+                          subtitle: '৭ দিনের পূর্বাভাস',
+                          icon: Icons.wb_sunny,
+                          onTap: () => context.push('/weather'),
+                        ),
+                        _buildToolCard(
+                          title: 'বাজার দর',
+                          subtitle: 'আজকের দাম',
+                          icon: Icons.storefront,
+                          onTap: () => context.go('/market'),
+                        ),
+                        _buildToolCard(
+                          title: 'রোগ লাইব্রেরি',
+                          subtitle: 'চিকিৎসা গাইড',
+                          icon: Icons.local_library,
+                          onTap: () => context.push('/library'),
+                        ),
+                        _buildToolCard(
+                          title: 'খরচ ট্র্যাকার',
+                          subtitle: 'খাতা-কাটা হিসাব',
+                          icon: Icons.account_balance_wallet,
+                          onTap: () => context.push('/expenses'),
+                        ),
+                        _buildToolCard(
+                          title: 'লাভ গণনা',
+                          subtitle: 'ফসলের মুনাফা',
+                          icon: Icons.calculate,
+                          onTap: () => context.push('/profit'),
+                        ),
+                        _buildToolCard(
+                          title: 'বিশ্লেষণ',
+                          subtitle: 'চার্ট ও রিপোর্ট',
+                          icon: Icons.bar_chart,
+                          onTap: () => context.push('/analytics'),
+                        ),
+                        _buildToolCard(
+                          title: 'সেচ পরামর্শ',
+                          subtitle: 'কখন, কতটুকু',
+                          icon: Icons.water_drop,
+                          onTap: () => context.push('/irrigation'),
+                        ),
+                        _buildToolCard(
+                          title: 'সার পরামর্শ',
+                          subtitle: 'ডোজ নির্দেশনা',
+                          icon: Icons.grass,
+                          onTap: () => context.push('/fertilizer'),
+                        ),
+                        _buildToolCard(
+                          title: 'স্ক্যান ইতিহাস',
+                          subtitle: 'আগের রিপোর্ট',
+                          icon: Icons.history,
+                          onTap: () => context.push('/ai/history'),
+                        ),
+                        _buildToolCard(
+                          title: 'নোটিফিকেশন',
+                          subtitle: 'আপডেট ও অ্যালার্ট',
+                          icon: Icons.notifications,
+                          onTap: () => context.push('/notifications'),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 30),
@@ -765,59 +797,110 @@ class HomeDashboard extends StatelessWidget {
       ),
     );
   }
-}
 
-// Alias used by lib/main.dart - the original agro.png dashboard.
-typedef HomeScreen = HomeDashboard;
-
-  // দ্রুত টুলস কার্ড — কালারড বর্ডার + আইকন + টাইটেল
+  // দ্রুত টুলস কার্ড — গ্রিনিশ গ্রেডিয়েন্ট + উজ্জ্বল আইকন ব্যাজ
   Widget _buildToolCard({
     required String title,
+    required String subtitle,
     required IconData icon,
-    required Color color,
     required VoidCallback onTap,
   }) {
     return Material(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(20),
-      elevation: 1,
-      shadowColor: Colors.black12,
+      color: Colors.transparent,
+      borderRadius: BorderRadius.circular(18),
       child: InkWell(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(18),
         onTap: onTap,
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: color.withValues(alpha: 0.15)),
+            gradient: const LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.white,
+                Color(0xFFF1F8F2),
+              ],
+            ),
+            borderRadius: BorderRadius.circular(18),
+            border: Border.all(
+              color: const Color(0xFF2E7D32).withValues(alpha: 0.18),
+              width: 1.2,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: const Color(0xFF1B4D22).withValues(alpha: 0.08),
+                blurRadius: 8,
+                offset: const Offset(0, 4),
+              ),
+            ],
           ),
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          padding: const EdgeInsets.all(12),
+          child: Row(
             children: [
               Container(
-                width: 44,
-                height: 44,
+                width: 42,
+                height: 42,
                 decoration: BoxDecoration(
-                  color: color.withValues(alpha: 0.12),
+                  gradient: const LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      Color(0xFF2E7D32),
+                      Color(0xFF66BB6A),
+                    ],
+                  ),
                   borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFF2E7D32).withValues(alpha: 0.35),
+                      blurRadius: 6,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
                 ),
-                child: Icon(icon, color: color, size: 24),
+                child: Icon(icon, color: Colors.white, size: 22),
               ),
-              const SizedBox(height: 12),
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black87,
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                        color: Color(0xFF1B4D22),
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      subtitle,
+                      style: const TextStyle(
+                        fontSize: 11,
+                        color: Color(0xFF4F6B52),
+                        fontWeight: FontWeight.w500,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
                 ),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+              ),
+              const Icon(
+                Icons.arrow_forward_ios,
+                size: 12,
+                color: Color(0xFF2E7D32),
               ),
             ],
           ),
         ),
       ),
     );
-  }
+  }}
+
+// Alias used by lib/main.dart - the original agro.png dashboard.
+typedef HomeScreen = HomeDashboard;
