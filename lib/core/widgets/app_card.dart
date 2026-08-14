@@ -43,10 +43,7 @@ class AppCard extends StatelessWidget {
         gradient: gradient,
         borderRadius: radius,
         border: bordered
-            ? Border.all(
-                color: borderColor ?? AppColors.border,
-                width: 1,
-              )
+            ? Border.all(color: borderColor ?? AppColors.border, width: 1)
             : null,
         boxShadow: showShadow
             ? [

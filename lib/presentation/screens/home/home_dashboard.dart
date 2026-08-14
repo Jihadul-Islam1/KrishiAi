@@ -58,7 +58,7 @@ class HomeDashboard extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const Text(
-                                  'Hello Jonathan.S',
+                                  'আসসালামু আলাইকুম, রহিম ভাই',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 22,
@@ -68,7 +68,7 @@ class HomeDashboard extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 2),
                                 Text(
-                                  'Monday, 02 Sep 2025',
+                                  'সোমবার, ০২ সেপ্টেম্বর ২০২৫',
                                   style: TextStyle(
                                     color: Colors.white.withValues(alpha: 0.7),
                                     fontSize: 13,
@@ -94,7 +94,7 @@ class HomeDashboard extends StatelessWidget {
                         const SizedBox(height: 24),
                         // মেইন স্লোগান টেক্সট
                         const Text(
-                          'Farming Made Simple,\nSmarter, and Sustainable',
+                          'চাষ হোক সহজ,\nস্মার্ট এবং টেকসই',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 24,
@@ -123,7 +123,7 @@ class HomeDashboard extends StatelessWidget {
                                     Icon(Icons.search, color: Colors.white),
                                     SizedBox(width: 10),
                                     Text(
-                                      'Search places',
+                                      'স্থান খুঁজুন',
                                       style: TextStyle(
                                         color: Colors.white70,
                                         fontSize: 16,
@@ -166,9 +166,9 @@ class HomeDashboard extends StatelessWidget {
                       onTap: () => context.push('/weather'),
                       child: Ink(
                         decoration: BoxDecoration(
-                          color: const Color(
-                            0xFF2E3B2E,
-                          ).withValues(alpha: 0.85), // স্ক্রিনশটের ডার্ক শেড কালার
+                          color: const Color(0xFF2E3B2E).withValues(
+                            alpha: 0.85,
+                          ), // স্ক্রিনশটের ডার্ক শেড কালার
                           borderRadius: BorderRadius.circular(24),
                           boxShadow: [
                             BoxShadow(
@@ -226,7 +226,7 @@ class HomeDashboard extends StatelessWidget {
                             ),
                             const SizedBox(height: 16),
                             Text(
-                              'Monday, 02 Sep 2025',
+                              'সোমবার, ০২ সেপ্টেম্বর ২০২৫',
                               style: TextStyle(
                                 color: Colors.white.withValues(alpha: 0.6),
                                 fontSize: 12,
@@ -253,9 +253,11 @@ class HomeDashboard extends StatelessWidget {
                                     ),
                                     const SizedBox(width: 5),
                                     Text(
-                                      'Bright and Sunny',
+                                      'উজ্জ্বল রোদ',
                                       style: TextStyle(
-                                        color: Colors.white.withValues(alpha: 0.9),
+                                        color: Colors.white.withValues(
+                                          alpha: 0.9,
+                                        ),
                                         fontSize: 14,
                                       ),
                                     ),
@@ -271,12 +273,14 @@ class HomeDashboard extends StatelessWidget {
                                   children: [
                                     Icon(
                                       Icons.wb_cloudy,
-                                      color: Colors.white.withValues(alpha: 0.7),
+                                      color: Colors.white.withValues(
+                                        alpha: 0.7,
+                                      ),
                                       size: 16,
                                     ),
                                     const SizedBox(width: 5),
                                     const Text(
-                                      'Weather',
+                                      'আবহাওয়া',
                                       style: TextStyle(
                                         color: Colors.white70,
                                         fontSize: 13,
@@ -293,7 +297,9 @@ class HomeDashboard extends StatelessWidget {
                                     color: Colors.green.withValues(alpha: 0.2),
                                     borderRadius: BorderRadius.circular(12),
                                     border: Border.all(
-                                      color: Colors.green.withValues(alpha: 0.3),
+                                      color: Colors.green.withValues(
+                                        alpha: 0.3,
+                                      ),
                                     ),
                                   ),
                                   child: const Row(
@@ -305,7 +311,7 @@ class HomeDashboard extends StatelessWidget {
                                       ),
                                       SizedBox(width: 5),
                                       Text(
-                                        'Stable for plant growth',
+                                        'ফসলের জন্য উপযুক্ত',
                                         style: TextStyle(
                                           color: Colors.greenAccent,
                                           fontSize: 11,
@@ -328,7 +334,7 @@ class HomeDashboard extends StatelessWidget {
             // ওয়েদার কার্ডের নিচের স্পেসিং অ্যাডজাস্টমেন্ট
             SizedBox(height: screenSize.height * 0.16),
 
-            // ৩. ক্রপ ফিল্টার ক্যাটাগরি চিপস (Wheat, Grapes, Potato)
+            // ৩. ক্রপ ফিল্টার ক্যাটাগরি চিপস (গম, আঙুর, আলু, ধান)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: SingleChildScrollView(
@@ -336,28 +342,28 @@ class HomeDashboard extends StatelessWidget {
                 child: Row(
                   children: [
                     _buildCropChip(
-                      'Wheat',
+                      'গম',
                       const Color(0xFFFF9800),
                       true,
                       onTap: () => context.push('/farm/crops'),
-                    ), // Wheat সিলেক্টেড (অরেঞ্জ কালার)
+                    ), // গম সিলেক্টেড (অরেঞ্জ কালার)
                     const SizedBox(width: 10),
                     _buildCropChip(
-                      'Grapes',
+                      'আঙুর',
                       Colors.white,
                       false,
                       onTap: () => context.push('/farm/crops'),
                     ),
                     const SizedBox(width: 10),
                     _buildCropChip(
-                      'Potato',
+                      'আলু',
                       Colors.white,
                       false,
                       onTap: () => context.push('/farm/crops'),
                     ),
                     const SizedBox(width: 10),
                     _buildCropChip(
-                      'Rice',
+                      'ধান',
                       Colors.white,
                       false,
                       onTap: () => context.push('/farm/crops'),
@@ -369,14 +375,14 @@ class HomeDashboard extends StatelessWidget {
 
             const SizedBox(height: 24),
 
-            // ৪. "My Fields" টাইটেল রো
+            // ৪. "আমার জমি" টাইটেল রো
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'My Fields',
+                    'আমার জমি',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -384,7 +390,7 @@ class HomeDashboard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'See all >',
+                    'সব দেখুন >',
                     style: TextStyle(color: Colors.grey, fontSize: 14),
                   ),
                 ],
@@ -506,15 +512,17 @@ class HomeDashboard extends StatelessWidget {
                                       children: [
                                         Icon(
                                           Icons.location_on,
-                                          color: Colors.white.withValues(alpha: 0.6),
+                                          color: Colors.white.withValues(
+                                            alpha: 0.6,
+                                          ),
                                           size: 14,
                                         ),
                                         const SizedBox(width: 4),
                                         Text(
-                                          '40.7128 N | 74.0060 W',
+                                          'খুলনা, বাংলাদেশ',
                                           style: TextStyle(
-                                            color: Colors.white.withValues(alpha: 
-                                              0.6,
+                                            color: Colors.white.withValues(
+                                              alpha: 0.6,
                                             ),
                                             fontSize: 12,
                                           ),
@@ -523,7 +531,7 @@ class HomeDashboard extends StatelessWidget {
                                     ),
                                     const SizedBox(height: 4),
                                     const Text(
-                                      'Emerald Valley Plot F5',
+                                      'জমি: প্লট এফ-৫',
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 18,
@@ -616,7 +624,9 @@ class HomeDashboard extends StatelessWidget {
         color: bgColor,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: isSelected ? Colors.transparent : Colors.grey.withValues(alpha: 0.2),
+          color: isSelected
+              ? Colors.transparent
+              : Colors.grey.withValues(alpha: 0.2),
         ),
       ),
       child: Row(
@@ -655,5 +665,6 @@ class HomeDashboard extends StatelessWidget {
     );
   }
 }
+
 // Alias used by lib/main.dart - the original agro.png dashboard.
 typedef HomeScreen = HomeDashboard;
