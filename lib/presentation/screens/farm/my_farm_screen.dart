@@ -6,9 +6,7 @@ import '../../../core/constants/app_strings.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/theme/app_text_styles.dart';
-import '../../../core/widgets/app_card.dart';
 import '../../../core/widgets/app_chip.dart';
-import '../../../core/widgets/app_divider.dart';
 import '../../../core/widgets/icon_badge.dart';
 import '../../../core/widgets/primary_button.dart';
 import '../../../core/widgets/screen_header.dart';
@@ -42,9 +40,7 @@ class MyFarmScreen extends ConsumerWidget {
             orElse: () => <Crop>[],
           );
           if (farms.isEmpty) {
-            return _EmptyFarmBody(
-              onAdd: () => context.push('/farm/add'),
-            );
+            return _EmptyFarmBody(onAdd: () => context.push('/farm/add'));
           }
           return _FarmBody(
             farms: farms,
@@ -109,7 +105,10 @@ class _FarmBody extends StatelessWidget {
           ),
           SliverPadding(
             padding: const EdgeInsets.fromLTRB(
-              AppSpacing.lg, 0, AppSpacing.lg, AppSpacing.huge,
+              AppSpacing.lg,
+              0,
+              AppSpacing.lg,
+              AppSpacing.huge,
             ),
             sliver: SliverList(
               delegate: SliverChildListDelegate.fixed([
@@ -178,8 +177,23 @@ class _SummaryStrip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppCard(
-      elevation: AppElevation.card,
+    return Container(
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Color(0xFF064E3B), Color(0xFF065F46)],
+        ),
+        borderRadius: BorderRadius.circular(AppRadius.lg),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF022C22).withValues(alpha: 0.35),
+            blurRadius: 20,
+            spreadRadius: -4,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      ),
       padding: const EdgeInsets.symmetric(
         horizontal: AppSpacing.lg,
         vertical: AppSpacing.lg,
@@ -189,8 +203,8 @@ class _SummaryStrip extends StatelessWidget {
           Expanded(
             child: _SummaryItem(
               icon: Icons.grass_rounded,
-              tint: AppColors.tintGreen,
-              color: AppColors.primary,
+              tint: const Color(0xFF065F46),
+              color: const Color(0xFFA7F3D0),
               value: '$farms',
               label: AppStrings.farms,
             ),
@@ -198,13 +212,13 @@ class _SummaryStrip extends StatelessWidget {
           Container(
             width: 1,
             height: 36,
-            color: AppColors.divider,
+            color: const Color(0xFFA7F3D0).withValues(alpha: 0.18),
           ),
           Expanded(
             child: _SummaryItem(
               icon: Icons.straighten_rounded,
-              tint: AppColors.tintAmber,
-              color: AppColors.accentDark,
+              tint: const Color(0xFF047857),
+              color: const Color(0xFFBBF7D0),
               value: acres.toStringAsFixed(1),
               label: AppStrings.acres,
             ),
@@ -212,13 +226,13 @@ class _SummaryStrip extends StatelessWidget {
           Container(
             width: 1,
             height: 36,
-            color: AppColors.divider,
+            color: const Color(0xFFA7F3D0).withValues(alpha: 0.18),
           ),
           Expanded(
             child: _SummaryItem(
               icon: Icons.eco_rounded,
-              tint: AppColors.tintBlue,
-              color: AppColors.info,
+              tint: const Color(0xFF10B981),
+              color: const Color(0xFFD1FAE5),
               value: '$crops',
               label: AppStrings.crops,
             ),
@@ -250,9 +264,15 @@ class _SummaryItem extends StatelessWidget {
       children: [
         IconBadge(icon: icon, tint: tint, color: color, size: 40, iconSize: 20),
         const SizedBox(height: AppSpacing.sm),
-        Text(value, style: AppTextStyles.stat),
+        Text(
+          value,
+          style: AppTextStyles.stat.copyWith(color: const Color(0xFFF0FDF4)),
+        ),
         const SizedBox(height: 2),
-        Text(label, style: AppTextStyles.caption),
+        Text(
+          label,
+          style: AppTextStyles.caption.copyWith(color: const Color(0xFFA7F3D0)),
+        ),
       ],
     );
   }
@@ -270,65 +290,139 @@ class _FarmCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppCard(
-      onTap: onTap,
-      elevation: AppElevation.card,
-      padding: const EdgeInsets.all(AppSpacing.lg),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          IconBadge(
-            icon: Icons.grass_rounded,
-            tint: AppColors.tintGreen,
-            color: AppColors.primary,
-            size: 48,
-            iconSize: 24,
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(AppRadius.lg),
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Color(0xFF065F46), Color(0xFF064E3B)],
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF022C22).withValues(alpha: 0.40),
+            blurRadius: 22,
+            spreadRadius: -6,
+            offset: const Offset(0, 10),
           ),
-          const SizedBox(width: AppSpacing.md),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(AppRadius.lg),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(AppRadius.lg),
+          splashColor: const Color(0xFF34D399).withValues(alpha: 0.18),
+          highlightColor: const Color(0xFF10B981).withValues(alpha: 0.12),
+          child: Padding(
+            padding: const EdgeInsets.all(AppSpacing.lg),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  farm.name,
-                  style: AppTextStyles.title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                const SizedBox(height: 2),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.location_on_outlined,
-                      size: 13,
-                      color: AppColors.textMuted,
+                Container(
+                  width: 48,
+                  height: 48,
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Color(0xFF10B981), Color(0xFF047857)],
                     ),
-                    const SizedBox(width: 2),
-                    Flexible(
-                      child: Text(
-                        farm.location,
-                        style: AppTextStyles.caption,
+                    borderRadius: BorderRadius.circular(AppRadius.md),
+                    boxShadow: [
+                      BoxShadow(
+                        color: const Color(0xFF022C22).withValues(alpha: 0.45),
+                        blurRadius: 14,
+                        spreadRadius: -4,
+                        offset: const Offset(0, 6),
+                      ),
+                    ],
+                  ),
+                  alignment: Alignment.center,
+                  child: const Icon(
+                    Icons.grass_rounded,
+                    color: Color(0xFFD1FAE5),
+                    size: 24,
+                  ),
+                ),
+                const SizedBox(width: AppSpacing.md),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        farm.name,
+                        style: AppTextStyles.title.copyWith(
+                          color: const Color(0xFFD1FAE5),
+                        ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 2),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.location_on_outlined,
+                            size: 13,
+                            color: const Color(
+                              0xFFA7F3D0,
+                            ).withValues(alpha: 0.85),
+                          ),
+                          const SizedBox(width: 2),
+                          Flexible(
+                            child: Text(
+                              farm.location,
+                              style: AppTextStyles.caption.copyWith(
+                                color: const Color(0xFFA7F3D0),
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: AppSpacing.sm),
+                      Container(
+                        height: 1,
+                        color: const Color(0xFFA7F3D0).withValues(alpha: 0.18),
+                      ),
+                      const SizedBox(height: AppSpacing.sm),
+                      Row(
+                        children: [
+                          AppChip(
+                            label: farm.soilType.bangla,
+                            icon: Icons.terrain_rounded,
+                          ),
+                          const SizedBox(width: AppSpacing.sm),
+                          Text(
+                            '${farm.sizeAcres.toStringAsFixed(1)} ${AppStrings.acres}',
+                            style: AppTextStyles.caption.copyWith(
+                              fontWeight: FontWeight.w600,
+                              color: const Color(0xFFD1FAE5),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-                const SizedBox(height: AppSpacing.sm),
-                AppDivider(),
-                const SizedBox(height: AppSpacing.sm),
-                Row(
+                const SizedBox(width: AppSpacing.md),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    AppChip(
-                      label: farm.soilType.bangla,
-                      icon: Icons.terrain_rounded,
-                    ),
-                    const SizedBox(width: AppSpacing.sm),
                     Text(
-                      '${farm.sizeAcres.toStringAsFixed(1)} ${AppStrings.acres}',
+                      '$cropsCount',
+                      style: AppTextStyles.stat.copyWith(
+                        fontSize: 26,
+                        color: const Color(0xFFF0FDF4),
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      AppStrings.crops,
                       style: AppTextStyles.caption.copyWith(
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.textPrimary,
+                        color: const Color(0xFFA7F3D0),
                       ),
                     ),
                   ],
@@ -336,19 +430,7 @@ class _FarmCard extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(width: AppSpacing.md),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                '$cropsCount',
-                style: AppTextStyles.stat.copyWith(fontSize: 26),
-              ),
-              const SizedBox(height: 2),
-              Text(AppStrings.crops, style: AppTextStyles.caption),
-            ],
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -379,10 +461,7 @@ class _EmptyFarmBody extends StatelessWidget {
                       ],
                     ),
                   ),
-                  _RoundIconButton(
-                    icon: Icons.add_rounded,
-                    onTap: onAdd,
-                  ),
+                  _RoundIconButton(icon: Icons.add_rounded, onTap: onAdd),
                 ],
               ),
               const Spacer(),

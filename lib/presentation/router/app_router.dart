@@ -133,7 +133,7 @@ GoRouter buildRouter(Ref ref) {
             MarketDetailScreen(priceId: state.pathParameters['id']!),
       ),
       GoRoute(path: '/expenses', builder: (_, _) => const ExpenseTrackerScreen()),
-      GoRoute(path: '/profit', builder: (_, _) => const ProfitCalculatorScreen()),
+      GoRoute(path: '/profit', parentNavigatorKey: _rootKey, builder: (_, _) => const ProfitCalculatorScreen()),
       GoRoute(path: '/analytics', builder: (_, _) => const AnalyticsScreen()),
       GoRoute(path: '/irrigation', builder: (_, _) => const IrrigationScreen()),
       GoRoute(path: '/fertilizer', builder: (_, _) => const FertilizerScreen()),
